@@ -3,6 +3,9 @@
 # Download unit file into /etc/systemd/system (units created by the administrator)
 wget -O /etc/systemd/system/unifi-dawn.service https://raw.githubusercontent.com/fdcastel/unifi-dawn/master/unifi-dawn.service
 
+# Create scripts directory
+mkdir -p /data/unifi-dawn.d
+
 # Reload all unit files
 systemctl daemon-reload
 
