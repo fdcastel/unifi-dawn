@@ -1,0 +1,18 @@
+[Unit]
+Description=Run custom scripts on Unifi OS Startup
+Documentation=https://github.com/fdcastel/unifi-dawn
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=3
+ConditionDirectoryNotEmpty=/data/unifi-dawn.d/
+
+[Service]
+Type=simple
+RemainAfterExit=true
+ExecStart=run-parts --regex= --verbose /data/unifi-dawn.d
+RestartSec=5s
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
