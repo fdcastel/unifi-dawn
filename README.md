@@ -40,6 +40,20 @@ On Unifi OS startup, _as soon as the network becomes available_, the scripts fro
 
 
 
+# Sample script
+
+```bash
+SCRIPT_FILE=/data/unifi-dawn.d/10-test-download.sh
+cat > $SCRIPT_FILE <<EOF
+#!/bin/bash
+
+wget -4 -O /tmp/temp.sh https://raw.githubusercontent.com/fdcastel/unifi-dawn/master/install.sh
+EOF
+chmod +x $SCRIPT_FILE
+```
+
+
+
 # To uninstall
 
 ```bash
